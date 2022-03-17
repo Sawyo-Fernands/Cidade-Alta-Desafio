@@ -39,12 +39,15 @@ export const Container=styled.main`
             div{
                 width: 100%;
 
+                .error-message{
+                    color: red;
+                    margin-top: 0.5rem;
+                    font-weight: 900;
+                }
+
                 label{
                 margin-right: auto;
             }
-            }
-
-            
 
             input{
                 height: 3rem;
@@ -53,8 +56,10 @@ export const Container=styled.main`
                 border-radius: 0%.25rem;
                 border: 1px solid #a8a8b3;
                 margin-top: 1rem;
+                outline: none;
+                }  
             }
-            
+
             button{
                 width: 40%;
                 margin: auto;
@@ -72,6 +77,7 @@ export const Container=styled.main`
                 }
                 
             }
+           
         }
     }
 

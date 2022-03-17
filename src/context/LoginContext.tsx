@@ -6,6 +6,9 @@ interface DataProps{
     nome:string;
     senha:string;
 }
+interface DataProps1{
+    nome:string;
+}
 
 interface LoginContextProps{
 
@@ -26,7 +29,7 @@ interface LoginProviderProps{
 
 export function LoginProvider({children}:LoginProviderProps){
 
-    const [user,setUser]=useState<DataProps>()
+    const [user,setUser]=useState<DataProps1>()
     const [loading,setLoading]=useState(true)
     const navigate=useNavigate()
 
@@ -56,7 +59,7 @@ export function LoginProvider({children}:LoginProviderProps){
             })
             
             if(exist){
-                localStorage.setItem('@user',JSON.stringify(data))
+                localStorage.setItem('@user',JSON.stringify(data.nome))
                 setUser(data)
                 navigate('/home')
             }else{

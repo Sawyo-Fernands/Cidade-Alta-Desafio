@@ -26,6 +26,7 @@ export default function Login(){
 
     const { Login }= useContext(LoginContext)
 
+
     const { register, handleSubmit, formState:{ errors } } = useForm<LoginProps>({
         resolver: yupResolver(Schema)
       });
@@ -36,15 +37,16 @@ export default function Login(){
             <Container>
                 <div>
                     <form onSubmit={onSubmit}>
+                        
                         <img src={Logo} alt="Cidade Alta" />
                         <div>
                             <label >Usuário</label>
-                            <input type="text"  {...register('nome')}/>
+                            <input type="text"  {...register('nome')}  placeholder="..."/>
                             <p className="error-message">{errors.nome?.message}</p>
                         </div>
                         <div>
                             <label >Senha</label>
-                            <input type="password" {...register('senha')} />
+                            <input type="password" {...register('senha')} placeholder="..." />
                             <p className="error-message">{errors.senha?.message}</p>
                         </div>
                         

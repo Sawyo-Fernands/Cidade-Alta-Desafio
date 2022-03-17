@@ -1,26 +1,29 @@
 import axios from "axios";
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface DataProps{
     nome:string;
     senha:string;
 }
+
 type DataNameProps=Omit<DataProps ,'senha'>
-
-interface LoginContextProps{
-
-    Login:(data:DataProps)=>void;
-    authenticated:boolean;
-    loading:boolean;
-}
-
-export const LoginContext=createContext({} as LoginContextProps)
-
 
 interface LoginProviderProps{
     children:ReactNode
 }
+
+interface LoginContextProps{
+
+    Login:(data:DataProps)=>void;
+    user:DataNameProps | undefined;
+    authenticated:boolean;
+    loading:boolean;
+    
+}
+export const LoginContext=createContext({} as LoginContextProps)
+
+
 
 
 export function LoginProvider({children}:LoginProviderProps){
@@ -34,7 +37,8 @@ export function LoginProvider({children}:LoginProviderProps){
         const recoveredUser=localStorage.getItem('@user')
 
         if(recoveredUser){
-            setUser(JSON.parse(recoveredUser))      
+            setUser(JSON.parse(recoveredUser))  
+            navigate('/home')    
         }  
 
         setLoading(false)
@@ -52,8 +56,8 @@ export function LoginProvider({children}:LoginProviderProps){
                if(value.nome == data.nome && value.senha ==data.senha){      
                 exist=true
                }
+               return
             })
-            
             if(exist){
                 localStorage.setItem('@user',JSON.stringify(data.nome))
                 setUser(data)
@@ -67,7 +71,7 @@ export function LoginProvider({children}:LoginProviderProps){
     }
 
     return(
-        <LoginContext.Provider value={{Login,authenticated :!!user,loading}}>
+        <LoginContext.Provider value={{Login,user,authenticated :!!user,loading}}>
                 {children}
         </LoginContext.Provider>
     )

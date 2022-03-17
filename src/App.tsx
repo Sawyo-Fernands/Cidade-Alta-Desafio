@@ -1,15 +1,16 @@
+import { LoginProvider } from "./context/LoginContext"
 import Login from "./pages/Login"
+import { RoutesApp } from "./routes"
 import { GlobalStyle } from "./styles/global"
 
 
 function App() {
 
   return (
-    <>
-    <Login/>
-    
-    <GlobalStyle/>
-    </>
+    <LoginProvider>
+        <RoutesApp/>
+        <GlobalStyle/>
+    </LoginProvider>
   )
 }
 

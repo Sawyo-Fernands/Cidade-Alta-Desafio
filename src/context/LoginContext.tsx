@@ -6,9 +6,7 @@ interface DataProps{
     nome:string;
     senha:string;
 }
-interface DataProps1{
-    nome:string;
-}
+type DataNameProps=Omit<DataProps ,'senha'>
 
 interface LoginContextProps{
 
@@ -25,11 +23,9 @@ interface LoginProviderProps{
 }
 
 
-
-
 export function LoginProvider({children}:LoginProviderProps){
 
-    const [user,setUser]=useState<DataProps1>()
+    const [user,setUser]=useState<DataNameProps>()
     const [loading,setLoading]=useState(true)
     const navigate=useNavigate()
 

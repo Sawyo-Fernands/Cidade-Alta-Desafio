@@ -5,8 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import * as yup from "yup";
-import { useContext } from "react";
-import { LoginContext } from "../../context/LoginContext";
+import { useLogin } from "../../hooks/LoginContext";
 
 
 
@@ -24,7 +23,7 @@ export const Schema = yup.object({
 
 export default function Login(){
 
-    const { Login }= useContext(LoginContext)
+    const { Login }= useLogin( )
 
 
     const { register, handleSubmit, formState:{ errors } } = useForm<LoginProps>({

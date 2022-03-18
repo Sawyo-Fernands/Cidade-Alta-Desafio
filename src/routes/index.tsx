@@ -5,7 +5,7 @@ import {
     Route,
     Navigate
   } from "react-router-dom";
-import { LoginContext, LoginProvider } from "../context/LoginContext";
+import { LoginContext, LoginProvider } from "../hooks/LoginContext";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 

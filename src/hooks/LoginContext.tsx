@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface DataProps{
@@ -38,7 +38,7 @@ export function LoginProvider({children}:LoginProviderProps){
 
         if(recoveredUser){
             setUser(JSON.parse(recoveredUser))  
-            navigate('/home')    
+                
         }  
 
         setLoading(false)
@@ -76,4 +76,12 @@ export function LoginProvider({children}:LoginProviderProps){
         </LoginContext.Provider>
     )
 
+}
+
+export function useLogin(){
+
+    const context=useContext(LoginContext)
+
+    return context
+    
 }

@@ -1,12 +1,11 @@
-import { useContext } from "react"
 import { Header } from "../../components/Header"
-import { LoginContext } from "../../context/LoginContext"
+import { useLogin } from "../../hooks/LoginContext"
 
 
 
 export default function Home(){
 
-    const {user}=useContext(LoginContext)
+    const {user}=useLogin()
 
     return(
         <>

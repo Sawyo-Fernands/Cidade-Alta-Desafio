@@ -48,7 +48,7 @@ export function LoginProvider({children}:LoginProviderProps){
 
         axios.get('https://my-json-server.typicode.com/cidadealta/exercise/usuarios')
         .then((value)=>{
-            
+  
             const res=value.data   
             let exist=false 
 
@@ -65,7 +65,7 @@ export function LoginProvider({children}:LoginProviderProps){
             }else{
                 alert('Usuário não cadastrado')
             }
-            
+        
         })
 
     }

@@ -39,4 +39,13 @@ export const HeaderComponent=styled.header`
         }
     }
 
+    @media (max-width:1200px) {
+            div{
+                width: 90%;
+                margin: auto;
+            }
+        }
+
+      
+
 `

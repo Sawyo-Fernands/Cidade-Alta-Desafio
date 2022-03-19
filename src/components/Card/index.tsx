@@ -28,25 +28,30 @@ export function Card(props:CardProps){
                 props.dataCriacao &&(
                     <>
                     <Subtitle>Data de Criação </Subtitle>
-                <Paragraph> {props.dataCriacao}</Paragraph>
+                <Paragraph> {new Intl.DateTimeFormat('pt-BR').format(new Date(props.dataCriacao))}</Paragraph>
                     </>
                 )
             }
 
+           
+
             {
-                props.multa && (
+                props.tempoPrisao && (
                     <>
-                    <Subtitle>Multa </Subtitle>
-                <Paragraph> {props.multa}</Paragraph>
+                    <Subtitle>Tempo de Prisão </Subtitle>
+                <Paragraph> {props.tempoPrisao} dias</Paragraph>
                     </>
                 )
             }
 
 {
-                props.tempoPrisao && (
+                props.multa && (
                     <>
                     <Subtitle>Multa </Subtitle>
-                <Paragraph> {props.tempoPrisao} dias</Paragraph>
+                <Paragraph> {new Intl.NumberFormat('pt-BR',{
+                            style:'currency',
+                            currency:'BRL'
+                        }).format(props.multa)}</Paragraph>
                     </>
                 )
             }

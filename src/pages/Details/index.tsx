@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
+import { Loading } from "../../components/Loading";
 import { api } from "../../services/api";
 import { Container } from "./styles";
 
@@ -19,7 +20,7 @@ interface DataPropsDetails{
 export function Details(){
 
     const [detail,setDetail]=useState<DataPropsDetails>()
-
+ 
   
 
     const { id }=useParams()
@@ -28,6 +29,7 @@ export function Details(){
 
         api.get(`/codigopenal/${id}`)
         .then(response=>{
+         
             setDetail(response.data)
             
         })
@@ -35,13 +37,12 @@ export function Details(){
     },[])
 
 
-    return (
+    return  (
         <>
         <Header LinkHeader="/home" contentHeader="Voltar"/>
          <Container>
-
             {
-                detail && (
+                detail  && (
                     <Card
                     descricao={detail?.descricao}
                     nome={detail?.nome}
@@ -54,8 +55,7 @@ export function Details(){
             />
                 )
             }
-             
-             
+  
          </Container>  
         </>
                     

@@ -50,8 +50,17 @@ export const Paragraph=styled.p`
         font-size: 1rem;
 `
 
-export const ContainerButtons=styled.div`
-display: flex;
+interface IsActivebuttons{
+    activeDisplay:string;
+}
+
+const display={
+    none:'none',
+    flex:'flex'
+}
+
+export const ContainerButtons=styled.div<IsActivebuttons>`
+display:${props=> props.activeDisplay =="flex" ? display.flex : display.none};
 gap: 1rem;
 margin-top: 1rem;
 align-items: center;

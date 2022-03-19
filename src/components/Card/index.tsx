@@ -7,17 +7,49 @@ interface CardProps{
     descricao:string;
     status:number;
 
+    dataCriacao?:string | Date;
+    multa?:number;
+    tempoPrisao?:number;
+
+    displayType:string;
 }
 
 export function Card(props:CardProps){
     return(
         <CardContainer>
             <Title>Art {props.id} : {props.nome} </Title>
+
+            
            
             <Subtitle>Descrição </Subtitle>
             <Paragraph> {props.descricao}</Paragraph>
 
+            {
+                props.dataCriacao &&(
+                    <>
+                    <Subtitle>Data de Criação </Subtitle>
+                <Paragraph> {props.dataCriacao}</Paragraph>
+                    </>
+                )
+            }
 
+            {
+                props.multa && (
+                    <>
+                    <Subtitle>Multa </Subtitle>
+                <Paragraph> {props.multa}</Paragraph>
+                    </>
+                )
+            }
+
+{
+                props.tempoPrisao && (
+                    <>
+                    <Subtitle>Multa </Subtitle>
+                <Paragraph> {props.tempoPrisao} dias</Paragraph>
+                    </>
+                )
+            }
 
             <Subtitle>Status </Subtitle>
             <Paragraph> {props.status == 1 ? 'ativo' : 'inativo'}</Paragraph>
@@ -26,7 +58,7 @@ export function Card(props:CardProps){
 
 
 
-            <ContainerButtons>
+            <ContainerButtons activeDisplay={props.displayType}>
 
                 <Button  activeColor="grey">Editar</Button>
                 <Link to={`/details/${props.id}`}>

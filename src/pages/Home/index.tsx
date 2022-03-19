@@ -56,6 +56,7 @@ export default function Home(){
                         nome={value.nome}
                         status={value.status}
                         descricao={value.descricao}
+                        displayType="flex"
 
                         />
                     ))

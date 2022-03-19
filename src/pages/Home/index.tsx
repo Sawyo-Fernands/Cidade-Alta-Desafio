@@ -51,9 +51,10 @@ export default function Home(){
                     data.map((value)=>(
                         <Card key={value.id}
                         id={value.id}
-                        multa={value.multa} dataCriacao={value.dataCriacao}
-                        descricao={value.descricao} nome={value.nome}
-                        status={value.status} tempoPrisao={value.tempoPrisao}
+                        nome={value.nome}
+                        status={value.status}
+                        descricao={value.descricao}
+
                         />
                     ))
                 }

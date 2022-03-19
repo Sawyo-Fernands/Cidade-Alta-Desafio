@@ -1,94 +1,93 @@
 import styled from 'styled-components'
 
-export const Container=styled.main`
-
-    background-color: #f2f2f2;
+export const Main=styled.main`
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    div:first-child{
-        box-shadow: 0 5px 10px 0 rgb(0 0 0 / 10%);
-    }
-
-    div{
-        background-color: #ffffff;
-        width: 400px;
-        margin: 0 auto;
-        padding: 1.5rem 1.5rem;
-        border-radius: 0.5rem;
-    
-
-
-        form{
-            width: 100%;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-
-           
-
-            img{
-                border-radius: 40%;
-                width: 150px;
-                height: 150px;
-                cursor: pointer;
-
-                transition: filter 0.2s;
-
-                &:hover{
-                    filter: brightness(0.8);
-                }
-            }
-
-            div{
-                width: 100%;
-
-                .error-message{
-                    color: red;
-                    margin-top: 0.5rem;
-                    font-weight: 900;
-                }
-
-                label{
-                margin-right: auto;
-            }
-
-            input{
-                height: 3rem;
-                width: 100%;
-                padding: 0.5rem;
-                border-radius: 0.50rem;
-                border: 1px solid #f7f7f7;
-                background-color: #f2f2f2;
-                margin-top: 1rem;
-                outline: none;
-                }  
-            }
-
-            button{
-                width: 40%;
-                margin: auto;
-                margin-bottom: 1rem;
-                padding: 1rem 1.5rem;
-                border: 0;
-                border-radius: 0.25rem;
-                background-color:#eba417 ;
-                color:white;
-                font-size: 1.1rem;
-                transition: filter 0.2s;
-
-                &:hover{
-                    filter: brightness(0.8);
-                }
-                
-            }
-           
-        }
-    }
-
-
+    background-color: #121214;
 `
+
+
+export const Container = styled.div`
+  width: 400px;
+  height: 350px;
+  background-color: #202024;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 415px) {
+    width: 100%;
+  }
+`;
+
+export const Content = styled.div`
+  width: 80%;
+  height: 75%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3{
+      color: white;
+      margin-right: auto;
+      margin-bottom: 0.5rem;
+  }
+
+  form{
+      width: 100%;
+  }
+`;
+
+export const InputContent = styled.div`
+  background-color: #121214;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid #121214;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  svg {
+    color: #353434;
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+  }
+  &:focus-within {
+    border-color: #8257e5;
+    svg {
+      color: #8257e5;
+    }
+  }
+`;
+
+export const Input = styled.input`
+  outline: none;
+  background-color: #121214;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 100%;
+  font-size: 15px;
+`;
+
+
+export const ButtonLogin = styled.button`
+  width: 100%;
+  cursor: pointer;
+  background: #8257e5;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  opacity: 0.9;
+  margin: 20px 0;
+  
+`;
+

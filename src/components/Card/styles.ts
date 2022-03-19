@@ -5,6 +5,7 @@ export const CardContainer=styled.div`
 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 2rem 1.5rem;
+    background-color: whitesmoke;
 
     h1{
         margin-bottom: 1rem;

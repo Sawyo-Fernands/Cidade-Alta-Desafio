@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { ButtonLogin, Container, Content, Input, InputContent, Main } from "./styles";
 import Logo from '../../assets/logosvg.png'
 
 import { useForm } from "react-hook-form";
@@ -33,26 +33,33 @@ export default function Login(){
       const onSubmit=handleSubmit(data => Login(data))
 
         return(
-            <Container>
-                <div>
-                    <form onSubmit={onSubmit}>
-                        
-                        <img src={Logo} alt="Cidade Alta" />
-                        <div>
-                            <label >Usuário</label>
-                            <input type="text"  {...register('nome')}  placeholder="..."/>
-                            <p className="error-message">{errors.nome?.message}</p>
-                        </div>
-                        <div>
-                            <label >Senha</label>
-                            <input type="password" {...register('senha')} placeholder="..." />
-                            <p className="error-message">{errors.senha?.message}</p>
-                        </div>
-                        
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            </Container>
+<Main>
+<Container>
+      <Content>
+          <form  onSubmit={onSubmit}>
+
+          <h3>Usuário</h3>
+        <InputContent>
+          <Input {...register('nome')}/>
+        </InputContent>
+        <p className="error-message">{errors.nome?.message}</p>
+        <h3>Senha</h3>
+
+        <InputContent>
+          <Input {...register('senha')}/>
+
+        </InputContent>
+        <p className="error-message">{errors.senha?.message}</p>
+
+
+        <ButtonLogin >ENTRAR</ButtonLogin>
+
+          </form>
+    
+      </Content>
+    </Container>
+</Main>
+    
         )
 
 

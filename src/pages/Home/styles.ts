@@ -8,6 +8,7 @@ export const Container= styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #3f3f4227;
 
     section{
         width: 80%;

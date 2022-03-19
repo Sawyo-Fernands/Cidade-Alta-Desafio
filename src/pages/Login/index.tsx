@@ -51,7 +51,7 @@ export default function Login(){
 
             <InputContent>
             <RiLockPasswordLine size={10} color="white"/>
-              <Input {...register('senha')}/>
+              <Input {...register('senha')} type="password"/>
 
             </InputContent>
             <p className="error-message">{errors.senha?.message}</p>

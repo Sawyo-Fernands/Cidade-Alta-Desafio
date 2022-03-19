@@ -23,6 +23,8 @@ height: calc(100vh - 6rem);
         }
         p{
             text-align: justify;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
         }
     }
 

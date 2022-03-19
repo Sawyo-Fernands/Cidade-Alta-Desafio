@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../../components/Header";
-import { Loading } from "../../components/Loading";
 import { api } from "../../services/api";
 import { Container } from "./styles";
 
@@ -42,7 +41,6 @@ export function Details(){
 
 
              <div>
-
                  <h1>Art {detail?.id} : {detail?.nome} </h1>
 
                  <h3>Multa</h3>
@@ -55,7 +53,7 @@ export function Details(){
                  <p>{detail?.tempoPrisao}</p>
 
                  <h3>Status</h3>
-                 <p>{detail?.status}</p>
+                 <p>{detail?.status ==1 ? 'ativo' : 'inativo'}</p>
 
                  <h3>Data de Criação</h3>
                  <p>{detail?.dataCriacao}</p>

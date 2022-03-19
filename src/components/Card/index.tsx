@@ -1,4 +1,5 @@
-import { CardContainer,Title,Paragraph,Subtitle } from "./styles"
+import { Link } from "react-router-dom";
+import { CardContainer,Title,Paragraph,Subtitle,ContainerButtons ,Button } from "./styles"
 
 interface CardProps{
     id?:number;
@@ -13,7 +14,8 @@ interface CardProps{
 export function Card(props:CardProps){
     return(
         <CardContainer>
-            <Title>Código Penal : #{props.id} </Title>
+            <Title>Art {props.id} : {props.nome} </Title>
+           
             <Subtitle>Data de criação</Subtitle>
             <Paragraph> {new Intl.DateTimeFormat('pt-BR').format(new Date(props.tempoPrisao))}</Paragraph>
             <Subtitle>Multa  </Subtitle>
@@ -31,7 +33,16 @@ export function Card(props:CardProps){
             <Subtitle>Descrição </Subtitle>
             <Paragraph> {props.descricao}</Paragraph>
 
+            <ContainerButtons>
 
+                <Button  activeColor="grey">Editar</Button>
+                <Link to={`/details/${props.id}`}>
+                <Button activeColor="grey">Detalhes</Button>
+                </Link> 
+                <Button activeColor="red">Deletar</Button>
+                
+
+            </ContainerButtons>
 
         </CardContainer>
     )

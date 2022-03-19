@@ -20,9 +20,6 @@ export const Schema = yup.object({
     data: yup.string().required("Campo obrigatório"),
     multa: yup.string().required("Campo obrigatório"),
     status: yup.number().required("Campo obrigatório"),
-
-   
-
   }).required();
 
 export function Register(){

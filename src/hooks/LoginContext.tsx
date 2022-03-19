@@ -38,7 +38,7 @@ export function LoginProvider({children}:LoginProviderProps){
 
         if(recoveredUser){
             setUser(JSON.parse(recoveredUser))  
-                
+            navigate('/home')    
         }  
 
         setLoading(false)

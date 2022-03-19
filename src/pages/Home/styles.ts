@@ -10,12 +10,19 @@ export const Container= styled.main`
     justify-content: center;
     background-color: #3f3f4227;
 
-    section{
+   
+
+`
+
+export const SectionHome=styled.section`
+
+
+
         width: 80%;
         margin: auto;
         display: grid;
         grid-template-columns:1fr 1fr 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
         
 
         @media (max-width:1300px) {
@@ -28,6 +35,5 @@ export const Container= styled.main`
         }
 
      
-    }
-
+    
 `

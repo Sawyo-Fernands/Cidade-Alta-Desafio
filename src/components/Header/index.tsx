@@ -14,8 +14,7 @@ export function Header({contentHeader,LinkHeader}:HeaderProps){
                 <img src={Logo} alt="CidadeAlta.gg" />
                 <Link to={`${LinkHeader}`}>
                 <button>
-                    {contentHeader}
-                    
+                    {contentHeader}  
                 </button>
                 </Link>
             </div>

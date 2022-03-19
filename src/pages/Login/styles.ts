@@ -12,7 +12,7 @@ export const Main=styled.main`
 
 export const Container = styled.div`
   width: 400px;
-  height: 53%;
+  height: 55%;
   background-color: #202024;
   border-radius: 5px;
   display: flex;
@@ -27,6 +27,16 @@ export const Container = styled.div`
     filter: grayscale(100%);
 
   }
+  p{
+    color: white;
+
+    &:first-child{
+      margin-bottom: 1rem;
+    }
+    
+  }
+  
+  
 `;
 
 export const Content = styled.div`

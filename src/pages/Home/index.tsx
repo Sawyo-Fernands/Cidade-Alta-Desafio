@@ -4,7 +4,7 @@ import { Header } from "../../components/Header"
 import { Loading } from "../../components/Loading"
 import { useLogin } from "../../hooks/LoginContext"
 import { api } from "../../services/api"
-import { Container } from "./styles"
+import { Container, SectionHome } from "./styles"
 
 
 interface DataPropsHome{
@@ -42,7 +42,7 @@ export default function Home(){
         <Container>
                
         
-            <section>
+            <SectionHome>
             {  loading  && (
                         <Loading/>
                     )
@@ -59,7 +59,7 @@ export default function Home(){
                 }
                 
                 
-            </section>
+            </SectionHome>
             
         </Container>
         </>

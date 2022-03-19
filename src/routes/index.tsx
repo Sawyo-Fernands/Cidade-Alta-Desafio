@@ -6,6 +6,7 @@ import {
     Navigate
   } from "react-router-dom";
 import { LoginContext, LoginProvider } from "../hooks/LoginContext";
+import { Details } from "../pages/Details";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -39,6 +40,7 @@ interface RoutePrivateProps{
             <Routes>
                 <Route  path="/home" element={ <Private><Home/></Private>}/>
                 <Route  path="/register" element={ <Private><Register/></Private>}/>
+                <Route  path="/details/:id" element={ <Private><Details/></Private>}/>
                 <Route path="/" element={<Login/>} />
             </Routes>
         </LoginProvider>

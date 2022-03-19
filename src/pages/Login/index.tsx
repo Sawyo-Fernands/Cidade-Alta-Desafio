@@ -7,6 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useLogin } from "../../hooks/LoginContext";
 
+import {AiOutlineUser} from 'react-icons/ai'
+import {RiLockPasswordLine} from 'react-icons/ri'
 
 
 interface LoginProps{
@@ -34,30 +36,32 @@ export default function Login(){
 
         return(
 <Main>
-<Container>
-    <img src={Logo} alt="" />
-      <Content>
-          <form  onSubmit={onSubmit}>
+    <Container>
+        <img src={Logo} alt="" />
+        <Content>
+            <form  onSubmit={onSubmit}>
 
-          <h3>Usuário</h3>
-        <InputContent>
-          <Input {...register('nome')}/>
-        </InputContent>
-        <p className="error-message">{errors.nome?.message}</p>
-        <h3>Senha</h3>
+             <h3>Usuário</h3>
+            <InputContent>
+            <AiOutlineUser size={10} color="white"/>
+              <Input {...register('nome')}/>
+            </InputContent>
+            <p className="error-message">{errors.nome?.message}</p>
+            <h3>Senha</h3>
 
-        <InputContent>
-          <Input {...register('senha')}/>
+            <InputContent>
+            <RiLockPasswordLine size={10} color="white"/>
+              <Input {...register('senha')}/>
 
-        </InputContent>
-        <p className="error-message">{errors.senha?.message}</p>
+            </InputContent>
+            <p className="error-message">{errors.senha?.message}</p>
 
 
-        <ButtonLogin >ENTRAR</ButtonLogin>
+            <ButtonLogin >ENTRAR</ButtonLogin>
 
-          </form>
-    
-      </Content>
+            </form>
+      
+        </Content>
     </Container>
 </Main>
     

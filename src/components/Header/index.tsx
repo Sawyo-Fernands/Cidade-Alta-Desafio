@@ -12,11 +12,12 @@ export function Header({contentHeader,LinkHeader}:HeaderProps){
         <HeaderComponent>
             <div>
                 <img src={Logo} alt="CidadeAlta.gg" />
+                <Link to={`${LinkHeader}`}>
                 <button>
-                    <Link to={`${LinkHeader}`}>
                     {contentHeader}
-                    </Link>
+                    
                 </button>
+                </Link>
             </div>
         </HeaderComponent>
     )

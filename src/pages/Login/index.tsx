@@ -35,6 +35,7 @@ export default function Login(){
         return(
 <Main>
 <Container>
+    <img src={Logo} alt="" />
       <Content>
           <form  onSubmit={onSubmit}>
 

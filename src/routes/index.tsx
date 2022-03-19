@@ -8,6 +8,7 @@ import {
 import { LoginContext, LoginProvider } from "../hooks/LoginContext";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import { Register } from "../pages/Register";
 
 interface RoutePrivateProps{
     children:JSX.Element
@@ -37,6 +38,7 @@ interface RoutePrivateProps{
         <LoginProvider>
             <Routes>
                 <Route  path="/home" element={ <Private><Home/></Private>}/>
+                <Route  path="/register" element={ <Private><Register/></Private>}/>
                 <Route path="/" element={<Login/>} />
             </Routes>
         </LoginProvider>

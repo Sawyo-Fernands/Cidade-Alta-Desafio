@@ -1,4 +1,15 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+
+export const ContainerMain=styled.main`
+
+        height: calc(100vh - 6rem);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #3f3f4227;
+
+    `
 
 export const Main=styled.main`
     height: 100vh;
@@ -11,21 +22,15 @@ export const Main=styled.main`
 
 
 export const Container = styled.div`
-  width: 400px;
-  height: 53%;
+  width: 450px;
+  height: 70%;
   background-color: #202024;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
   @media (max-width: 415px) {
     width: 100%;
-  }
-
-  img{
-    filter: grayscale(100%);
-
   }
 `;
 
@@ -83,7 +88,7 @@ export const Input = styled.input`
 `;
 
 
-export const ButtonLogin = styled.button`
+export const ButtonSubmit = styled.button`
   width: 100%;
   cursor: pointer;
   background: white;
@@ -96,4 +101,3 @@ export const ButtonLogin = styled.button`
   margin: 20px 0;
   
 `;
-

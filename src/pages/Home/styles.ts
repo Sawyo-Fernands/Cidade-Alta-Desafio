@@ -18,11 +18,11 @@ export const Container= styled.main`
         gap: 1rem;
         
 
-        @media (max-width:1200px) {
+        @media (max-width:1300px) {
             grid-template-columns: 1fr 1fr;
         }
 
-        @media (max-width:600px) {
+        @media (max-width:960px) {
             grid-template-columns: 1fr;
             margin-top: 2rem;
         }

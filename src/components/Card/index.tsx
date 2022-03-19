@@ -1,4 +1,4 @@
-import { CardContainer } from "./styles"
+import { CardContainer,Title,Paragraph,Subtitle } from "./styles"
 
 interface CardProps{
     id?:number;
@@ -13,21 +13,23 @@ interface CardProps{
 export function Card(props:CardProps){
     return(
         <CardContainer>
-            <h1>Código Penal : #{props.id} </h1>
-            <h3>Data de criação</h3>
-            <p> {new Intl.DateTimeFormat('pt-BR').format(new Date(props.tempoPrisao))}</p>
-            <h3>Multa  </h3>
-            <p>{new Intl.NumberFormat('pt-BR',{
+            <Title>Código Penal : #{props.id} </Title>
+            <Subtitle>Data de criação</Subtitle>
+            <Paragraph> {new Intl.DateTimeFormat('pt-BR').format(new Date(props.tempoPrisao))}</Paragraph>
+            <Subtitle>Multa  </Subtitle>
+            <Paragraph>
+                {new Intl.NumberFormat('pt-BR',{
                             style:'currency',
                             currency:'BRL'
-                        }).format(props.multa)}</p>
+                        }).format(props.multa)}
+            </Paragraph>
 
-            <h3>Status  </h3>
-            <p>{ props.status ==1  ? 'ativo' : 'inativo'}</p>
-            <h3>Tempo de Prisão </h3>
-            <p> {props.tempoPrisao} dias</p>
-            <h3>Descrição </h3>
-            <p> {props.descricao}</p>
+            <Subtitle>Status  </Subtitle>
+            <Paragraph>{ props.status ==1  ? 'ativo' : 'inativo'}</Paragraph>
+            <Subtitle>Tempo de Prisão </Subtitle>
+            <Paragraph> {props.tempoPrisao} dias</Paragraph>
+            <Subtitle>Descrição </Subtitle>
+            <Paragraph> {props.descricao}</Paragraph>
 
 
 

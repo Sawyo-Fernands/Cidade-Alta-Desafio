@@ -23,8 +23,7 @@ export default function Home(){
     function deleteCode(id:number){
         
         api.delete(`/codigopenal/${id}`)
-        .then(()=>{
-
+        
         setData(data.filter(object => object.id !== id))
             toast.success('Código penal deletado !', {
                 position: "top-left",
@@ -35,7 +34,6 @@ export default function Home(){
                 draggable: true,
                 progress: undefined,
                 });
-        })
       
 
         

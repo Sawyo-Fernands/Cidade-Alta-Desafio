@@ -6,10 +6,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import * as yup from "yup";
 import { api } from "../../services/api";
-import { usePenalCodes } from "../../hooks/PenalCodesContext";
 import { toast, ToastContainer } from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useParams } from "react-router-dom";
 
 interface RegisterProps{
   id?:number;
@@ -32,38 +32,40 @@ export const Schema = yup.object({
 
 export function Edit(){
 
-  const {setData,data}=usePenalCodes()
+
+  const { id }=useParams()
 
     const { register, handleSubmit, formState:{ errors } } = useForm<RegisterProps>({
         resolver: yupResolver(Schema)
       });
 
       const onSubmit=handleSubmit(object => {
-        const idRandom=(num : number)=>Math.floor( Math.random() * num );
-        const newCode={
-          id: idRandom(99999),
-          nome:object.nome,
-          descricao:object.descricao,
-          dataCriacao:object.dataCriacao,
-          multa:object.multa,
-          tempoPrisao:object.tempoPrisao,
-          status:object.status
-        }
-        api.post('/codigopenal',newCode)
-        .then(()=>{
 
-          toast.success('Código penal Editado !', {
-            position: "top-left",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-            setData([...data,newCode])
-            localStorage.setItem('@code',JSON.stringify(newCode))
+        const newCode={
+            id: object.id,
+            nome:object.nome,
+            descricao:object.descricao,
+            dataCriacao:object.dataCriacao,
+            multa:object.multa,
+            tempoPrisao:object.tempoPrisao,
+            status:object.status
+          }
+
+        api.patch(`/codigopenal/${id}`,newCode).then((response)=>{
+
+          
+            toast.success('Código penal Editado !', {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+                
         })
+        
         
         
       })
@@ -123,7 +125,7 @@ export function Edit(){
           <p className="error-message">{errors.descricao?.message}</p>
 
 
-          <ButtonSubmit >Adicionar</ButtonSubmit>
+          <ButtonSubmit >Atualizar</ButtonSubmit>
 
           </form>
     

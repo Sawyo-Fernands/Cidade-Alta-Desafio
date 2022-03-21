@@ -12,9 +12,16 @@ interface CardProps{
     tempoPrisao?:number;
 
     displayType:string;
+
+
+    deleteCode?:()=>void;
 }
 
 export function Card(props:CardProps){
+
+ 
+
+
     return(
         <CardContainer>
             <Title>Art {props.id} : {props.nome} </Title>
@@ -56,12 +63,13 @@ export function Card(props:CardProps){
 
 
             <ContainerButtons activeDisplay={props.displayType}>
-
+                <Link to={`/edit/${props.id}`}>
                 <Button  activeColor="grey">Editar</Button>
+                </Link> 
                 <Link to={`/details/${props.id}`}>
                 <Button activeColor="grey">Detalhes</Button>
                 </Link> 
-                <Button activeColor="red">Deletar</Button>
+                <Button activeColor="red" onClick={props.deleteCode}>Deletar</Button>
                 
 
             </ContainerButtons>

@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { Container ,ContainerMain,ButtonSubmit,Content,Input,InputContent,Main} from "./styled";
+import { Container ,ContainerMain,ButtonSubmit,Content,Input,InputContent,Main} from "./styles";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -30,7 +30,7 @@ export const Schema = yup.object({
     descricao: yup.string().required("Campo obrigatório"),
   }).required();
 
-export function Register(){
+export function Edit(){
 
   const {setData,data}=usePenalCodes()
 
@@ -52,7 +52,7 @@ export function Register(){
         api.post('/codigopenal',newCode)
         .then(()=>{
 
-          toast.success('Código penal adicionado !', {
+          toast.success('Código penal Editado !', {
             position: "top-left",
             autoClose: 2000,
             hideProgressBar: false,
@@ -61,10 +61,8 @@ export function Register(){
             draggable: true,
             progress: undefined,
             });
-
             setData([...data,newCode])
-        localStorage.setItem('@code',JSON.stringify(newCode))
-
+            localStorage.setItem('@code',JSON.stringify(newCode))
         })
         
         

@@ -3,21 +3,22 @@ import styled from "styled-components";
 
 export const Container= styled.main`
 
-    height: calc(100vh - 6rem);
+    height: 100vh ;
 
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #3f3f4227;
 
+    @media(max-width:950px){
+     height: 100%;
+     padding-bottom: 2rem;
+ }
    
 
 `
 
 export const SectionHome=styled.section`
-
-
-
         width: 80%;
         margin: auto;
         display: grid;

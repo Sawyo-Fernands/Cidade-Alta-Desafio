@@ -8,6 +8,7 @@ import {
 import { LoginContext, LoginProvider } from "../hooks/LoginContext";
 import { PenalCodesProvider } from "../hooks/PenalCodesContext";
 import { Details } from "../pages/Details";
+import { Edit } from "../pages/Edit";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -43,6 +44,7 @@ interface RoutePrivateProps{
                     <Route  path="/home" element={ <Private><Home/></Private>}/>
                     <Route  path="/register" element={ <Private><Register/></Private>}/>
                     <Route  path="/details/:id" element={ <Private><Details/></Private>}/>
+                    <Route  path="/edit/:id" element={ <Private><Edit/></Private>}/>
                     <Route path="/" element={<Login/>} />
                 </Routes>
             </PenalCodesProvider>      

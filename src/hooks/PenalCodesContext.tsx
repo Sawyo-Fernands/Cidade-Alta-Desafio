@@ -3,7 +3,7 @@ import { api } from "../services/api";
 
 
 
-interface PenalCodesProps{
+interface PenalCodesProvider{
     children:ReactNode;
 }
 
@@ -26,7 +26,7 @@ interface PenalCodesContextProps{
 
 export const PenalCodesContext=createContext({} as PenalCodesContextProps);
 
-export function PenalCodesProvider({children}:PenalCodesProps){
+export function PenalCodesProvider({children}:PenalCodesProvider){
 
     const [data,setData]=useState<PenalCodesStateProps[]>([])
     const [loading,setLoading]=useState(true)

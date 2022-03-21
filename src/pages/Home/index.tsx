@@ -1,11 +1,16 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
 import { Card } from "../../components/Card"
 import { Header } from "../../components/Header"
 import { Loading } from "../../components/Loading"
 import { LogoutButton } from "../../components/LogoutButton"
 import { usePenalCodes } from "../../hooks/PenalCodesContext"
+import { api } from "../../services/api"
 import { Container, SectionHome } from "./styles"
 
+import { toast, ToastContainer } from "react-toastify";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,16 +18,47 @@ import { Container, SectionHome } from "./styles"
 export default function Home(){
 
    
-    const { data,loading } =usePenalCodes()
+    const { data,loading,setData } =usePenalCodes()
+
+    function deleteCode(id:number){
+        
+        api.delete(`/codigopenal/${id}`)
+        .then(()=>{
+
+        setData(data.filter(object => object.id !== id))
+            toast.success('Código penal deletado !', {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        })
+      
+
+        
+    }
 
 
     return(
         <>
         <Header contentHeader="Adicionar" LinkHeader="/register"/>
+          <ToastContainer
+              position="top-left"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
         <Container>
         <LogoutButton/>
                
-        
             <SectionHome>
             {  loading  && (
                         <Loading/>
@@ -36,7 +72,7 @@ export default function Home(){
                         status={value.status}
                         descricao={value.descricao}
                         displayType="flex"
-
+                            deleteCode={()=>{deleteCode(Number(value.id))}}
                         />
                     ))
                 }

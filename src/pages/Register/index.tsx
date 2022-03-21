@@ -63,7 +63,6 @@ export function Register(){
             });
 
             setData([...data,newCode])
-        localStorage.setItem('@code',JSON.stringify(newCode))
 
         })
         
@@ -90,37 +89,37 @@ export function Register(){
           <form  onSubmit={onSubmit}>
           <h3>Nome</h3>
           <InputContent>
-            <Input {...register('nome')}/>
+            <Input {...register('nome')} placeholder="Ex: latrocinio.."/>
           </InputContent>
           <p className="error-message">{errors.nome?.message}</p>
 
           <h3>Data</h3>
           <InputContent>
-            <Input {...register('dataCriacao')}/>
+            <Input {...register('dataCriacao')} placeholder="dd/mm/yyyy"/>
           </InputContent>
           <p className="error-message">{errors.dataCriacao?.message}</p>
 
           <h3>Multa</h3>
           <InputContent>
-            <Input {...register('multa')}/>
+            <Input {...register('multa')} placeholder=" R$1200"/>
           </InputContent>
           <p className="error-message">{errors.multa?.message}</p>
 
           <h3>Status</h3>
           <InputContent>
-            <Input {...register('status')}/>
+            <Input {...register('status')} placeholder="1: Ativo , 2 : Inativo"/>
           </InputContent>
           <p className="error-message">{errors.status?.message}</p>
 
           <h3>Tempo de Prisão</h3>
           <InputContent>
-            <Input {...register('tempoPrisao')}/>
+            <Input {...register('tempoPrisao')} placeholder="200"/>
           </InputContent>
           <p className="error-message">{errors.tempoPrisao?.message}</p>
 
           <h3>Descrição</h3>
           <InputContent>
-            <Input {...register('descricao')}/>
+            <Input {...register('descricao')} placeholder=" ...."/>
           </InputContent>
           <p className="error-message">{errors.descricao?.message}</p>
 

@@ -21,7 +21,6 @@ export function Details(){
 
     const [detail,setDetail]=useState<DataPropsDetails>()
  
-  const[ store,setStore]=useState<DataPropsDetails>()
 
     const { id }=useParams()
 
@@ -34,8 +33,6 @@ export function Details(){
             
         })
 
-        const localStor=JSON.parse(localStorage.getItem('@code') || '{}')
-       setStore(localStor)
 
     },[])
 
@@ -45,7 +42,7 @@ export function Details(){
         <Header LinkHeader="/home" contentHeader="Voltar"/>
          <Container>
             {
-                detail  ? (
+                detail  && (
                     <Card
                     id={detail?.id}
                     descricao={detail?.descricao}
@@ -57,19 +54,8 @@ export function Details(){
                     displayType="none"
                 
             />
-                ) : (
-                    <Card
-                    id={store?.id}
-                    descricao={store?.descricao}
-                    nome={store?.nome}
-                    status={store?.status}
-                    dataCriacao={store?.dataCriacao}
-                    multa={store?.multa}
-                    tempoPrisao={store?.tempoPrisao}
-                    displayType="none"
+                ) 
                 
-            />
-                )
             }
   
          </Container>  

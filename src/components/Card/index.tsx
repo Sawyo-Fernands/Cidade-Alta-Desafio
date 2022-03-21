@@ -3,9 +3,9 @@ import { CardContainer,Title,Paragraph,Subtitle,ContainerButtons ,Button } from 
 
 interface CardProps{
     id?:number;
-    nome:string;
-    descricao:string;
-    status:number;
+    nome?:string;
+    descricao?:string;
+    status?:number;
 
     dataCriacao?:string | Date;
     multa?:number;

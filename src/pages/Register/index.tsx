@@ -64,7 +64,7 @@ export function Register(){
 
         })
         setData([...data,newCode])
-        
+        localStorage.setItem('@code',JSON.stringify(newCode))
         
       })
 

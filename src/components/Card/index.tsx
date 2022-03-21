@@ -19,8 +19,6 @@ export function Card(props:CardProps){
         <CardContainer>
             <Title>Art {props.id} : {props.nome} </Title>
 
-            
-           
             <Subtitle>Descrição </Subtitle>
             <Paragraph> {props.descricao}</Paragraph>
 
@@ -32,9 +30,6 @@ export function Card(props:CardProps){
                     </>
                 )
             }
-
-           
-
             {
                 props.tempoPrisao && (
                     <>
@@ -44,8 +39,8 @@ export function Card(props:CardProps){
                 )
             }
 
-{
-                props.multa && (
+            {
+                props.multa ===0 || props.multa  && (
                     <>
                     <Subtitle>Multa </Subtitle>
                 <Paragraph> {new Intl.NumberFormat('pt-BR',{
@@ -58,9 +53,6 @@ export function Card(props:CardProps){
 
             <Subtitle>Status </Subtitle>
             <Paragraph> {props.status == 1 ? 'ativo' : 'inativo'}</Paragraph>
-
-
-
 
 
             <ContainerButtons activeDisplay={props.displayType}>

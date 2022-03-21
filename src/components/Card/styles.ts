@@ -29,6 +29,20 @@ export const Button=styled.button<RadioBoxProps>`
     color: white;
 
 `
+interface IsActivebuttons{
+    activeDisplay:string;
+}
+const display={
+    none:'none',
+    flex:'flex'
+}
+
+export const ContainerButtons=styled.div<IsActivebuttons>`
+display:${props=> props.activeDisplay =="flex" ? display.flex : display.none};
+gap: 1rem;
+margin-top: 1rem;
+align-items: center;
+`
 
 export const Title=styled.h1`
     margin-bottom: 1rem;
@@ -50,18 +64,6 @@ export const Paragraph=styled.p`
         font-size: 1rem;
 `
 
-interface IsActivebuttons{
-    activeDisplay:string;
-}
 
-const display={
-    none:'none',
-    flex:'flex'
-}
 
-export const ContainerButtons=styled.div<IsActivebuttons>`
-display:${props=> props.activeDisplay =="flex" ? display.flex : display.none};
-gap: 1rem;
-margin-top: 1rem;
-align-items: center;
-`
+

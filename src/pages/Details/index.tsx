@@ -44,6 +44,7 @@ export function Details(){
             {
                 detail  && (
                     <Card
+                    id={detail?.id}
                     descricao={detail?.descricao}
                     nome={detail?.nome}
                     status={detail.status}

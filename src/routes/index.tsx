@@ -6,6 +6,7 @@ import {
     Navigate
   } from "react-router-dom";
 import { LoginContext, LoginProvider } from "../hooks/LoginContext";
+import { PenalCodesProvider } from "../hooks/PenalCodesContext";
 import { Details } from "../pages/Details";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -37,12 +38,14 @@ interface RoutePrivateProps{
     return(
         <BrowserRouter>
         <LoginProvider>
-            <Routes>
-                <Route  path="/home" element={ <Private><Home/></Private>}/>
-                <Route  path="/register" element={ <Private><Register/></Private>}/>
-                <Route  path="/details/:id" element={ <Private><Details/></Private>}/>
-                <Route path="/" element={<Login/>} />
-            </Routes>
+            <PenalCodesProvider>
+                <Routes>
+                    <Route  path="/home" element={ <Private><Home/></Private>}/>
+                    <Route  path="/register" element={ <Private><Register/></Private>}/>
+                    <Route  path="/details/:id" element={ <Private><Details/></Private>}/>
+                    <Route path="/" element={<Login/>} />
+                </Routes>
+            </PenalCodesProvider>      
         </LoginProvider>
             
         </BrowserRouter>

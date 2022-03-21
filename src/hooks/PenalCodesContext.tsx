@@ -8,7 +8,7 @@ interface PenalCodesProps{
 }
 
 interface PenalCodesStateProps{
-    id:number;
+    id?:number;
     nome:string;
     descricao:string;
     dataCriacao:string | Date;

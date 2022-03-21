@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMain=styled.main`
 
-        height: calc(100vh - 6rem);
+        height: calc(100vh - 1rem);
 
         display: flex;
         align-items: center;
@@ -23,7 +23,8 @@ export const Main=styled.main`
 
 export const Container = styled.div`
   width: 450px;
-  height: 70%;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
   background-color: #202024;
   border-radius: 5px;
   display: flex;
@@ -36,11 +37,15 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 80%;
-  height: 75%;
+  max-height: 75%;
   max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .error-message{
+    color: white;
+  }
 
   h3{
       color: white;

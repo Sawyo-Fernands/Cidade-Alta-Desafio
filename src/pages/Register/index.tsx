@@ -10,6 +10,7 @@ import { usePenalCodes } from "../../hooks/PenalCodesContext";
 import { toast, ToastContainer } from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useCallback } from "react";
 
 interface RegisterProps{
   id?:number;
@@ -38,7 +39,7 @@ export function Register(){
         resolver: yupResolver(Schema)
       });
 
-      const onSubmit=handleSubmit(object => {
+      const onSubmit=useCallback(handleSubmit(object => {
         const idRandom=(num : number)=>Math.floor( Math.random() * num );
         const newCode={
           id: idRandom(99999),
@@ -67,7 +68,7 @@ export function Register(){
         })
         
         
-      })
+      }),[])
 
     return(
         <>

@@ -10,8 +10,9 @@ import { toast, ToastContainer } from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from "react-router-dom";
+import { useCallback } from "react";
 
-interface RegisterProps{
+interface EditProps{
   id?:number;
   nome:string;
   descricao:string;
@@ -35,11 +36,11 @@ export function Edit(){
 
   const { id }=useParams()
 
-    const { register, handleSubmit, formState:{ errors } } = useForm<RegisterProps>({
+    const { register, handleSubmit, formState:{ errors } } = useForm<EditProps>({
         resolver: yupResolver(Schema)
       });
 
-      const onSubmit=handleSubmit(object => {
+      const onSubmit=useCallback(handleSubmit(object => {
 
         const newCode={
             id: object.id,
@@ -64,11 +65,8 @@ export function Edit(){
                 progress: undefined,
                 });
                 
-        })
-        
-        
-        
-      })
+        })   
+      }),[])
 
     return(
         <>

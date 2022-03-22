@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Card } from "../../components/Card"
 import { Header } from "../../components/Header"
 import { Loading } from "../../components/Loading"
@@ -20,7 +20,7 @@ export default function Home(){
    
     const { data,loading,setData } =usePenalCodes()
 
-    function deleteCode(id:number){
+    const deleteCode=useCallback((id:number)=>{
 
         if (window.confirm("Deseja mesmo apagar o código?")) {
             api.delete(`/codigopenal/${id}`)
@@ -36,12 +36,15 @@ export default function Home(){
                 progress: undefined,
                 });
           }
+
+    },[data])
+
+        
         
         
       
 
-        
-    }
+    
 
 
     return(

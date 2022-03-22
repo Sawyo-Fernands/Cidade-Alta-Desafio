@@ -21,8 +21,9 @@ export default function Home(){
     const { data,loading,setData } =usePenalCodes()
 
     function deleteCode(id:number){
-        
-        api.delete(`/codigopenal/${id}`)
+
+        if (window.confirm("Deseja mesmo apagar o código?")) {
+            api.delete(`/codigopenal/${id}`)
         
         setData(data.filter(object => object.id !== id))
             toast.success('Código penal deletado !', {
@@ -34,6 +35,9 @@ export default function Home(){
                 draggable: true,
                 progress: undefined,
                 });
+          }
+        
+        
       
 
         

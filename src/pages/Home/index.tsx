@@ -6,7 +6,7 @@ import { Loading } from "../../components/Loading"
 import { LogoutButton } from "../../components/LogoutButton"
 import { usePenalCodes } from "../../hooks/PenalCodesContext"
 import { api } from "../../services/api"
-import { Container, SectionHome } from "./styles"
+import { Container, Filter, SectionHome } from "./styles"
 
 import { toast, ToastContainer } from "react-toastify";
 
@@ -14,11 +14,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-
 export default function Home(){
 
    
     const { data,loading,setData } =usePenalCodes()
+
+    const [filter,setFilter]=useState('')
+
+    let dataFilter=data.filter(item =>item.nome.toLocaleLowerCase().includes(filter))
 
     const deleteCode=useCallback((id:number)=>{
 
@@ -39,14 +42,6 @@ export default function Home(){
 
     },[data])
 
-        
-        
-        
-      
-
-    
-
-
     return(
         <>
         <Header contentHeader="Adicionar" LinkHeader="/register"/>
@@ -63,6 +58,7 @@ export default function Home(){
           />
         <Container>
         <LogoutButton/>
+        <Filter type='text' placeholder="Procure aqui .." onChange={(e)=>setFilter(e.target.value)}/>
                
             <SectionHome>
             {  loading  && (
@@ -70,7 +66,7 @@ export default function Home(){
                     )
             }
                 {
-                    data?.map((value)=>(
+                    dataFilter?.map((value)=>(
                         <Card key={value.id}
                         id={value.id}
                         nome={value.nome}

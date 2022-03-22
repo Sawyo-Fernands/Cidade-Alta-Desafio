@@ -18,6 +18,22 @@ export const Container= styled.main`
 
 `
 
+export const Filter=styled.input`
+position:fixed;
+top: 10rem;
+left: 3rem;
+border: 0;
+height: 3rem;
+padding: 1rem;
+outline: none;
+border-radius: 0.50rem;
+width:300px;
+
+@media (max-width:970px){
+    display: none;
+}
+`
+
 export const SectionHome=styled.section`
         width: 80%;
         margin: auto;
